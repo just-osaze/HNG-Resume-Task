@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+}
+header img {
+  margin-bottom: -0.5em;
+}
+.logo {
+  margin-left: 1em;
+  padding: 0.2em;
+  border: 0.25em solid #a62c71;
+  color: #a62c71;
+}
+.logo h1 {
+  font-size: 1.2rem;
+}
+nav {
+  background: transparent;
+  top: 0;
+  bottom: 0;
+}
+nav li {
+  padding: 3%;
+  text-align: center;
+  list-style: none;
+  background-color: rgba(0, 0, 0, .3);
+}
+nav li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9em;
+}
+nav li a:hover {
+  color: #a62c71;
+  font-weight: 900;
+  transition: ease-in-out .3s;
+  text-decoration: 3px underline;
+}
+.content {
+  color: #ffffff;
+  font-size: 1.5em;
+  margin-left: 1.5em;
+}
+.content p {
+  font-weight: 300;
+  /* filter: drop-shadow(2px 2px 5px #fff); */
+}
+.bg-content {
+  margin-top: 5em;
+}
+.one, .two{
+  margin-bottom: 0.3em;
+}
+.one, .three {
+  font-size: 0.6em;
+}
+svg {
+  width: 1em;
+  margin-top: 1em;
+}
+button.hire {
+  margin-left: 40%;
+  margin-top: 5.2em;
+  padding: 0.3em 0.9em;
+}
+span {
+  display: inline-block;
+}
+#particles-js {
+  margin-top: 50em;
+}
+.aboutImage img{
+  height: 100vh;
+  width: 100vw;
+}
+.svg h1 {
+  font-size: 1.5em;
+}
+.card {
+  margin: 3% 0 4% 11%;
+  min-height: 22em;
+}
+form {
+  width: 90%;
+  height: 100%;
+  margin-left: 1em;
+}
+.form-svg {
+  font-size: 4em;
+  margin-top: 0em;
+  text-align: center;
+}
+form span {
+  color: #ff0000;
+}
+textarea.form-control {
+  resize: none;
+}
+footer {
+  border-top: #df098d 3px solid
+}
+footer p{
+  text-align: center;
+  font-size: 0.7rem;
+  margin-top: 0.3em;
+}
+@media only screen and (min-width: 900px) {
+  body {
+    width: 100vw;
+    height: 90vh;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+  }
+  header nav {
+    border-bottom: #df098d 3px solid;
+  }
+  .logo {
+    margin-left: 12.5em;
+    padding: 0.3em;
+    margin-top: 0.5em;
+    border: 0.23em solid #a62c71;
+    color: #000000;
+  }
+  .logo h1 {
+    font-size: 1rem;
+  }
+  nav li {
+    display: inline-block;
+    padding: 2em 2em 0 2em;
+    background-color: transparent;
+  }
+  nav li a {
+    color: #000000;
+  }
+  .active {
+    color: #a62c71;
+    text-decoration: 3px underline;
+    font-weight: 900;
+  }
+  .sm-content {
+    display: none;
+  }
+  .bg-content {
+    display: block;
+  }
+  .content {
+    margin: 5em 0 0 5em;
+    text-align: left;
+    line-height: 1.7em;
+  }
+  .content .one {
+    font-size: 0.45em;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+  }
+  .content .two {
+    font-size: 1.5em;
+    font-weight: 100;
+  }
+  .content .three {
+    font-size: 0.7em;
+    font-weight: 100;
+  }
+  #particles-js {
+    display: blok;
+  }
+  .about {
+    height: 110%;
+  }
+  .aboutImage img {
+    width: 28%;
+    height: 20%;
+    margin-top: 3.5em;
+    display: inline;
+    float: left;
+  }
+  .abouText {
+    width: 50%;
+    margin-top: 3em;
+    margin-left: 2em;
+    font-size: 0.98rem;
+    line-height: 1.5em;
+    float: left;
+  }
+  .portfolio-card {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .service {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  form {
+    margin-top: 3em;
+    padding: 2em;
+    width: 35%;
+    background-color: #f2f2f2;
+    border-radius: 1em;
+    display: inline-block;
+  }
+  .lName {
+    margin-left: 15.7em;
+  }
+  form span {
+    color: #ff0000;
+  }
+  input {
+    height: 2.2em;
+    width: 49%;
+    margin-top: 0.5em;
+    font-size: 0.9rem;
+  }
+  ::placeholder {
+    color: red;
+  }
+  input[type=email], .message {
+    width: 99%;
+  }
+  textarea {
+    resize: none;
+    width: 99%;
+    font-size: 1.4em;
+  }
+  .svg {
+    width: 40%;
+    float: left;
+    margin-top: 7.5em;
+    margin-left: 10em;
+  }
+  .svg svg {
+    width: 50%;
+  }
+  .svg h1 {
+    font-size: 2rem;
+    margin-top: -2.5em;
+    margin-bottom: 2em;
+  }
+  footer{
+    color:#000000;
+    background-color: #ffffff; 
+    border-top: #df098d 3px solid;   
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  footer p {
+    margin-top: 3em;
+    margin-bottom: 1em;
+  }
+}

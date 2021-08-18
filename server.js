@@ -3,35 +3,93 @@
  * 2. Create an express server
  * 3. Connect to mongoDB
  * 4. Initialize express
- * 2. user submitting the form with data in a POST request
- * 3. validation on both the client and the server
- * 4. re-displaying the form populated with escaped data and error messages if invalid
- * 5. doing something with the sanitized data on the server if it’s all valid
- * 6. redirecting the user or showing a success message after data is processed.
- * 9. Listen to app connection
+ * 5. user submitting the form with data in a POST request
+ * 6. re-displaying the form populated with escaped data and error messages if invalid
+ * 7. redirecting the user or showing a success message after data is processed.
+ * 8. Listen to app connection
  */
 
- const express = require('express');
- const connectDB = require('./db/main.js');
- port = 5493;
+const express = require('express');
+const bodyParser = require('body-parser');
+const connectDB = require('./db/main.js'); 
+const form = require('./model/form');
+const expressvalidator = require('express-validator')
 
- //initialize express
- const app = express();
- 
- //middlewares
-//  app.set('view engine','ejs');
-//  app.use(bodyParser.urlencoded({ extended:true }));
+//port
+port = 5493;
 
- //connect to mongoDB
- connectDB();
- 
- //create a basic get request route
- app.get('/', (req, res) => {
-   res.json({message: "Welcome Recruiter"});
- })
- 
+//initialize express
+const app = express();
+
+//connect to mongoDB
+connectDB();
+
+//set views
+app.set('views', './views');
+app.set('view engine', 'ejs');
+
+//middlewares
+app.use(express.static('public'));
+app.use('/css', express.static(__dirname + 'public/css'));
+app.use('/js', express.static(__dirname + 'public/js'));
+app.use('/img', express.static(__dirname + 'public/images'));
+
+app.use(bodyParser.urlencoded({ extended:false }));
+app.use(bodyParser.json());
+
+ //create routes
+app.get('/', (req, res) =>{
+  res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/index.html', (req, res) =>{
+  res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/about.html', (req, res) =>{
+  res.sendFile(__dirname + '/views/about.html');
+});
+
+app.get('/contact.html', (req, res) =>{
+  res.sendFile(__dirname + '/views/contact.html');
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + './views/success.html')
+});
+
+app.get('/portfolio.html', (req, res) =>{
+  res.sendFile(__dirname + '/views/portfolio.html');
+});
+
+app.get('/services.html', (req, res) =>{
+  res.sendFile(__dirname + '/views/services.html');
+});
+
+app.post('/success.html', (req, res) =>{
+  res.sendFile(__dirname + '/views/success.html');
+  let details = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    tel: req.body.tel,
+    message: req.body.message,
+  }
+  
+  form.create((err, newlyCreatedForm) => {
+    if(err)
+    {
+      return res.status(500).json({ message: err });
+    }else{
+      // return res.status(200);
+      console.log(details);
+    }
+  });
+});
+
+
  
  //Listen to app connection
  app.listen(port, () => {
    console.log(`Server Connected and listening on: http://127.0.0.1:5493`);
- })
+ });

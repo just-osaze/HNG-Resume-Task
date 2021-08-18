@@ -3,21 +3,22 @@
  * 2. Start a local mongoDB server
  */
 const mongoose = require('mongoose');
-connectionUri = 'mongodb://localhost:27017/resume-db';
+connectionString = 'mongodb://localhost:27017/portfolio-form';
 
 //Async mongose connection
 const connectDB = async () => {
   try {
-    await mongoose.connect(connectionUri, {
+    await mongoose.connect(connectionString, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useCreativeIndex: true,
+      useFindAndModify: false
     });
 
     console.log('Database connected!!!');
 
   } catch (err) {
     console.error(err.message);
-
   }
 }
 
