@@ -7,7 +7,8 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 // const connectionUrl = 'mongodb://localhost:27017/formDb'
-const { connectionUrl } = process.env; 
+// const { connectionUrl } = process.env; 
+connectionUrl = "mongodb+srv://new-form:successfulNewForm@cluster0.pjxtb.mongodb.net/PortfolioDatabase?retryWrites=true&w=majority"
 
 const connectDB = () => {
   mongoose.connect(connectionUrl, {
