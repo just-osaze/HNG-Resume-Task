@@ -83,5 +83,5 @@ app.post('/success.html', (req, res) =>{
  
  //Listen to app connection
  app.listen(port, () => {
-   console.log(`Server Connected and listening on: http://127.0.0.1:5493`);
+   console.log(`Server Connected`);
  });

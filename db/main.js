@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 dotenv.config();
-// const connectionUrl = 'mongodb://localhost:27017/formDb'
-const { connectionUrl } = process.env; 
+const connectionUrl = 'mongodb://localhost:27017/formDb'
+// const { connectionUrl } = process.env; 
 
 const connectDB = () => {
   mongoose.connect(connectionUrl, {
