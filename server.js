@@ -10,11 +10,9 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const port = process.env;
 const connectDB = require('./db/main.js'); 
 const formModel = require('./model/form');
-
-//port
-port = 5493;
 
 //initialize express
 const app = express();
