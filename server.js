@@ -10,10 +10,13 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 const port = process.env;
 const connectDB = require('./db/main.js'); 
 const formModel = require('./model/form');
 
+
+dotenv.config();
 //initialize express
 const app = express();
 
