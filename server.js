@@ -76,8 +76,7 @@ app.post('/success.html', (req, res) =>{
     if(error) {
       return res.status(404).json({ message: "Please fill out all details" });
     } else {
-      return res.status(200).json({ message: receivedResponse });
-      // console.log('yes');
+      return res.status(200);
     }
   });
 });
