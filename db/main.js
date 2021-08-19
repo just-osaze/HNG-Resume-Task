@@ -11,7 +11,7 @@ const connectDB = () => {
     useUnifiedTopology: true,
     useFindAndModify: false
     }, (err) => {
-      if (err) throw err
+      if (err) return err
       console.log("Database Connected!!!")
     });
   

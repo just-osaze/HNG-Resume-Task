@@ -68,7 +68,7 @@ app.get('/services.html', (req, res) =>{
 });
 
 app.post('/success.html', (req, res) =>{
-  res.setHeader("Content-Type", "text/html");
+  
   res.sendFile(__dirname + '/views/success.html');
   
   const formResponse = new formModel(req.body)
@@ -76,7 +76,8 @@ app.post('/success.html', (req, res) =>{
     if(error) {
       return res.status(404).json({ message: "Please fill out all details" });
     } else {
-      res.status(200).json(receivedResponse);
+      return res.status(200).json({ message: receivedResponse });
+      // console.log('yes');
     }
   });
 });
