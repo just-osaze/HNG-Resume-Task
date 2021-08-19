@@ -4,16 +4,13 @@
  * 3. Connect to mongoDB
  * 4. Initialize express
  * 5. user submitting the form with data in a POST request
- * 6. re-displaying the form populated with escaped data and error messages if invalid
- * 7. redirecting the user or showing a success message after data is processed.
- * 8. Listen to app connection
+ * 6. redirecting the user or showing a success message after data is processed.
+ * 7. Listen to app connection
  */
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const connectDB = require('./db/main.js'); 
-const form = require('./model/form');
-const expressvalidator = require('express-validator');
 const formModel = require('./model/form');
 
 //port
