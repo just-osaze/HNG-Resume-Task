@@ -4,15 +4,15 @@ const mongoose = require('mongoose');
 const formSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: true
+    required: [true, "First Name is required"]
   },
   lastName: {
     type: String,
-    required: true
+    required: [true, "Last Name is required"]
   },
   email: {
     type: String,
-    required: true
+    required: [true, "Email is required"]
   },
   tel: {
     type: Number,
@@ -24,4 +24,7 @@ const formSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("form", formSchema)
+const formModel = mongoose.model('data', formSchema);
+
+module.exports = formModel;
+module.exports = mongoose.model("form", formSchema);

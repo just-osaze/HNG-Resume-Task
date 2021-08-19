@@ -3,24 +3,18 @@
  * 2. Start a local mongoDB server
  */
 const mongoose = require('mongoose');
-connectionString = 'mongodb://localhost:27017/portfolio-form';
+const connectionUrl = 'mongodb://localhost:27017/formDb'
 
-//Async mongose connection
-const connectDB = async () => {
-  try {
-    await mongoose.connect(connectionString, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreativeIndex: true,
-      useFindAndModify: false
+const connectDB = () => {
+  mongoose.connect(connectionUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+    }, (err) => {
+      if (err) throw err
+      console.log("Database Connected!!!")
     });
-
-    console.log('Database connected!!!');
-
-  } catch (err) {
-    console.error(err.message);
-  }
+  
 }
-
 
 module.exports = connectDB;

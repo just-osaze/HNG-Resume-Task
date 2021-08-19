@@ -13,7 +13,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const connectDB = require('./db/main.js'); 
 const form = require('./model/form');
-const expressvalidator = require('express-validator')
+const expressvalidator = require('express-validator');
+const formModel = require('./model/form');
 
 //port
 port = 5493;
@@ -67,27 +68,18 @@ app.get('/services.html', (req, res) =>{
 });
 
 app.post('/success.html', (req, res) =>{
+  res.setHeader("Content-Type", "text/html");
   res.sendFile(__dirname + '/views/success.html');
-  let details = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    tel: req.body.tel,
-    message: req.body.message,
-  }
   
-  form.create((err, newlyCreatedForm) => {
-    if(err)
-    {
-      return res.status(500).json({ message: err });
-    }else{
-      // return res.status(200);
-      console.log(details);
+  const formResponse = new formModel(req.body)
+  formResponse.save((error, receivedResponse) => {
+    if(error) {
+      return res.status(404).json({ message: "Please fill out all details" });
+    } else {
+      res.status(200).json(receivedResponse);
     }
   });
 });
-
-
  
  //Listen to app connection
  app.listen(port, () => {
