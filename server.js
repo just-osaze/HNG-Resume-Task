@@ -10,12 +10,11 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
 require('dotenv').config();
 const connectDB = require('./db/main.js'); 
 const formModel = require('./model/form');
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 //initialize express
 const app = express();
