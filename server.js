@@ -15,7 +15,7 @@ require('dotenv').config();
 const connectDB = require('./db/main.js'); 
 const formModel = require('./model/form');
 
-const port = process.env.PORT || 5493;
+const port = process.env.PORT || 3000;
 
 dotenv.config();
 //initialize express
