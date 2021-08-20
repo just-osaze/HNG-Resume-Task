@@ -9,7 +9,7 @@ require('dotenv').config();
 //connectionUrl = "mongodb+srv://new-form:successfulNewForm@cluster0.pjxtb.mongodb.net/PortfolioDatabase?retryWrites=true&w=majority"
 
 const connectDB = () => {
-  mongoose.connect(process.env.connectionUrl, {
+  mongoose.connect(process.env.CONNECTIONURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
