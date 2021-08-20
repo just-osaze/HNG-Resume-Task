@@ -11,10 +11,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const port = process.env;
+require('dotenv').config();
 const connectDB = require('./db/main.js'); 
 const formModel = require('./model/form');
 
+const port = process.env.PORT || 5493;
 
 dotenv.config();
 //initialize express
@@ -80,6 +81,6 @@ app.post('/success.html', (req, res) =>{
 });
  
  //Listen to app connection
- app.listen(() => {
+ app.listen(port, () => {
    console.log(`Server Connected`);
  });
